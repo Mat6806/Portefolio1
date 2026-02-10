@@ -1,0 +1,24 @@
+UC Exchange 
+- Strasbourg 
+10.242.0.0/18 ==> vlan 10 service financier
+10.242.64.0/18 ==> vlan 20 la direction
+10.242.128.0/18 ==> vlan 30 service informatique
+10.242.192.0/18 ==> vlan 40 salle des serveurs 
+
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+
+
+Masque en /18 : 255.255.192.0
+
+- Nancy
+10.242.2.0/17
+- Metz
+10.242.3.0/17
+
+ABC Conseil
+Masque en /18 : 255.255.192.0
+
+- Nancy
+10.252.1.0/18
+- Metz
+10.252.2.0/18

@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-but-rt-mathias-robin",
+  "version": "1.0.0",
+  "description": "Portfolio web statique généré à partir de l’e-portfolio Mahara (BUT RT – 2ème & 3ème année) de Mathias Robin.",
+  "private": true,
+  "scripts": {
+    "start": "npx serve .",
+    "preview": "npx serve ."
+  },
+  "keywords": [
+    "portfolio",
+    "but-rt",
+    "reseaux-telecom",
+    "mahara",
+    "static-site"
+  ],
+  "author": "Mathias Robin",
+  "license": "UNLICENSED",
+  "dependencies": {},
+  "devDependencies": {}
+}
+

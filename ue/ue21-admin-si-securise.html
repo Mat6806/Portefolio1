@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UE 2.1 – Administrer un SI sécurisé | Portfolio BUT RT - Mathias Robin</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <div>
+        <p class="site-kicker">E‑portfolio BUT Réseaux &amp; Télécommunications</p>
+        <h1>UE 2.1 – Administrer un système d’information sécurisé</h1>
+        <p class="site-subtitle">
+          Cybersécurité, sécurisation d’infrastructures et de services
+        </p>
+      </div>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="../index.html#accueil">Accueil</a>
+        <a href="ue11-administrer.html">UE 1.1 Administrer</a>
+        <a href="ue12-connecter.html">UE 1.2 Connecter</a>
+        <a href="ue13-programmer.html">UE 1.3 Programmer</a>
+        <a href="ue21-admin-si-securise.html">UE 2.1 SI sécurisé</a>
+        <a href="ue22-surveiller-si-securise.html">UE 2.2 Surveiller SI</a>
+        <a href="../index.html#bac-cv">BAC &amp; CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="back-home">
+        <a href="../index.html">
+          <span>←</span> Retour à l’accueil du portfolio
+        </a>
+      </div>
+
+      <div class="layout-ue">
+        <section>
+          <header class="ue-header">
+            <div class="badge">
+              <span class="badge-dot"></span>
+              <span>UE 2.1 – Administrer un SI sécurisé</span>
+            </div>
+            <h2>Mettre en œuvre la cybersécurité dans un SI</h2>
+            <p>
+              Cette UE est centrée sur la mise en place de bonnes pratiques de cybersécurité,
+              la sécurisation des infrastructures réseau, des services, et l’utilisation des
+              outils cryptographiques adaptés.
+            </p>
+          </header>
+
+          <article class="card sae-card is-open">
+            <header class="sae-card-header" tabindex="0">
+              <div>
+                <h3>
+                  SAE 4.01 – Sécuriser un système d’information
+                  <span class="sae-tag">Semestre 4</span>
+                </h3>
+                <div class="sae-meta">
+                  <span>Architecture sécurisée</span>
+                  <span>DNS, LDAPS, NFS, OpenVPN, pfSense</span>
+                </div>
+              </div>
+              <span class="sae-toggle-icon" aria-hidden="true">›</span>
+            </header>
+
+            <div class="sae-body">
+            <h4 class="section-title">Présentation</h4>
+            <p>
+              Dans cette SAE, nous devions concevoir et mettre en place une
+              <strong>architecture réseau sécurisée</strong> pour un système d’information,
+              avec différents <strong>services critiques</strong> et un pare‑feu.
+            </p>
+            <p>
+              L’objectif était de proposer une infrastructure cohérente, choisie par le
+              groupe, et de mettre en place les services nécessaires (DNS, annuaire,
+              VPN, etc.) tout en respectant les bonnes pratiques et les contraintes de
+              sécurité.
+            </p>
+
+            <h4 class="section-title">Réalisation</h4>
+            <p>
+              En groupe, nous avons opté pour la mise en place des services suivants&nbsp;:
+            </p>
+            <ul>
+              <li><strong>DNS</strong> pour la résolution de noms interne ;</li>
+              <li><strong>LDAPS</strong> pour sécuriser l’annuaire ;</li>
+              <li><strong>NFS</strong> pour le partage de fichiers ;</li>
+              <li><strong>OpenVPN</strong> pour l’accès distant sécurisé ;</li>
+              <li><strong>pfSense</strong> comme pare‑feu principal.</li>
+            </ul>
+            <p>
+              Nous avons utilisé plusieurs <strong>machines virtuelles</strong> interconnectées
+              via des interfaces en bridge, afin de simuler une architecture proche
+              d’un environnement de production.
+            </p>
+
+            <h4 class="section-title">Compétences visées</h4>
+            <ul class="pill-list">
+              <li class="pill"><strong>CE4.01</strong> – Viser un compromis entre sécurité et contraintes d’utilisation</li>
+              <li class="pill"><strong>CE4.02</strong> – Respecter les normes et le cadre juridique</li>
+              <li class="pill"><strong>CE4.05</strong> – Sensibiliser efficacement des utilisateurs</li>
+            </ul>
+
+            <h4 class="section-title">Apprentissages critiques</h4>
+            <ul class="pill-list">
+              <li class="pill"><strong>AC24.01Cyber</strong> – Connaître et utiliser les bonnes pratiques et recommandations de cybersécurité</li>
+              <li class="pill"><strong>AC24.02Cyber</strong> – Mettre en œuvre les outils fondamentaux de sécurisation d’une infrastructure réseau</li>
+              <li class="pill"><strong>AC24.03Cyber</strong> – Sécuriser les services</li>
+              <li class="pill"><strong>AC24.06Cyber</strong> – Comprendre des documents techniques en anglais</li>
+            </ul>
+            <h4 class="section-title">Image</h4>
+            <figure class="sae-image">
+              <img src="../assets/images/SAE401SCREEN.png" alt="Capture d'écran SAE 4.01" />
+            </figure>
+            <h4 class="section-title">Traces / sources</h4>
+            <p class="small">
+              Traces à ajouter (topologie réseau, captures de configurations pfSense, LDAPS,
+              OpenVPN, documentation technique, etc.).
+            </p>
+            </div>
+          </article>
+          
+          <article class="card sae-card">
+            <header class="sae-card-header" tabindex="0">
+              <div>
+                <h3>
+                  SAE 503 - Assurer la sécurisation et la supervision avancées d'un système d'information
+                  <span class="sae-tag">Semestre 5</span>
+                </h3>
+                <div class="sae-meta">
+                  <span>Stormshield / Lab</span>
+                  <span>Supervision &amp; sécurisation</span>
+                </div>
+              </div>
+              <span class="sae-toggle-icon" aria-hidden="true">›</span>
+            </header>
+
+            <div class="sae-body">
+            <h4 class="section-title">Présentation</h4>
+            <p>
+              Le but de cette SAE était de passer la certification Stormshield CSNA afin
+              d’approfondir nos connaissances en cybersécurité et sur les pare‑feux Stormshield.
+            </p>
+
+            <h4 class="section-title">Réalisation</h4>
+            <p>
+              Pour cette SAE nous avions à disposition un lab avec six machines virtuelles
+              permettant de s’entraîner sur les différents aspects et fonctionnalités de Stormshield.
+            </p>
+
+            <h4 class="section-title">Compétences visées</h4>
+            <ul class="pill-list">
+              <li class="pill"><strong>CE4.02</strong> – Respecter les normes et le cadre juridique</li>
+              <li class="pill"><strong>CE4.03</strong> – Intégrer les dernières technologies</li>
+            </ul>
+
+            <h4 class="section-title">Apprentissages critiques</h4>
+            <ul class="pill-list">
+              <li class="pill"><strong>AC24.02Cyber</strong> – Mettre en œuvre les outils fondamentaux de sécurisation d’une infrastructure réseau</li>
+              <li class="pill"><strong>AC24.03Cyber</strong> – Sécuriser les services</li>
+              <li class="pill"><strong>AC24.05Cyber</strong> – Connaître les différents types d’attaque</li>
+            </ul>
+            <h4 class="section-title">Image</h4>
+            <figure class="sae-image">
+              <img src="../assets/images/SAE503SCREEN.png" alt="Capture d'écran SAE 503" />
+            </figure>
+            <h4 class="section-title">Traces / sources</h4>
+            <ul class="trace-list">
+              <li>Photo certification</li>
+            </ul>
+            </div>
+          </article>
+        </section>
+
+        <aside class="card">
+          <h3>Apprentissages critiques de l’UE 2.1</h3>
+          <ul class="pill-list">
+            <li class="pill"><strong>AC24.01Cyber</strong> – Bonnes pratiques et recommandations de cybersécurité</li>
+            <li class="pill"><strong>AC24.02Cyber</strong> – Outils fondamentaux de sécurisation d’une infrastructure réseau</li>
+            <li class="pill"><strong>AC24.03Cyber</strong> – Sécuriser les services</li>
+            <li class="pill"><strong>AC24.04Cyber</strong> – Choisir les outils cryptographiques adaptés</li>
+            <li class="pill"><strong>AC24.05Cyber</strong> – Connaître les différents types d’attaque</li>
+            <li class="pill"><strong>AC24.06Cyber</strong> – Comprendre des documents techniques en anglais</li>
+          </ul>
+
+          <h3>Compétences de la compétence 4</h3>
+          <ul class="pill-list">
+            <li class="pill"><strong>CE4.01</strong> – Juste compromis entre exigences de sécurité et contraintes d’utilisation</li>
+            <li class="pill"><strong>CE4.02</strong> – Respecter les normes et le cadre juridique</li>
+            <li class="pill"><strong>CE4.03</strong> – Intégrer les dernières technologies</li>
+            <li class="pill"><strong>CE4.04</strong> – Travailler en équipe</li>
+            <li class="pill"><strong>CE4.05</strong> – Sensibiliser efficacement des utilisateurs</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; <span id="year"></span> – Portfolio de Mathias Robin – BUT RT</p>
+      <p class="small">
+        UE 2.1 – Administrer un SI sécurisé – Mise en œuvre de la cybersécurité.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Mise à jour de l'année
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // Gestion de l'ouverture/fermeture des cartes SAE
+    document.querySelectorAll(".sae-card-header").forEach((header) => {
+      header.addEventListener("click", () => {
+        const card = header.closest(".sae-card");
+        card.classList.toggle("is-open");
+      });
+      
+      // Accessibilité clavier (Enter ou Espace)
+      header.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          const card = header.closest(".sae-card");
+          card.classList.toggle("is-open");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+

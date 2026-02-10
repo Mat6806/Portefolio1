@@ -1,0 +1,85 @@
+from scapy.all import *
+import argparse
+import ipaddress
+
+#Découverte active d'une hôte en envoyant un message ICMP qui attend une réponse, si il y a une réponse. Il le notifie à l'utilisateur sinon c'est qu'il n'est pas joignable.
+#On peut aussi exporté le résultat dans un fichier texte.
+def decouverte_icmp(addr, export_file=None):
+    packet = IP(dst=addr) / ICMP()
+    print("Scan en cours")
+    reply = sr1(packet,iface = 'ens33', timeout=3)
+    if reply is not None:
+         print(f"{addr} est en ligne!")
+    else:
+          print(f"{addr} n'est pas ateignable")
+    if export_file:
+        with open(export_file, 'w') as file:
+            file.write("\n".join(str(addr)))
+            print(f"Résultats exportés dans {export_file}")
+
+#Permet d'afficher si c'est un packet ARP et qu'il y a l'adresse de l'hôte recherché en source ou destination.
+#est appelé par la fonction decouverte_hote.
+def reponse_decouverte(packet):
+    if ARP in packet and packet[ARP].op in (1, 2):
+        return "il y a eu une requête ARP de l'hôte recherché"
+
+#Demande à l'utilisateur la durée d'écoute de la découverte passive et scan les méssages arp avec l'adresse demandé en argument.
+#renvoie à la fonction reponse_decouverte pour afficher proprement et peut être coupé en utilisant Ctrl+C.
+#On peut aussi exporté le résultat dans un fichier texte.
+def decouverte_hote(addr, export_file=None):
+    d = int(input("Entrez la durée du scan (120 - 240 secondes) : "))
+    print(f"Scan en cours de l'adresse {addr} veuillez patientez, cela dure {d} secondes!")
+    try:
+        ans = sniff(filter=f'arp and host {addr}',timeout=d, prn=reponse_decouverte, store=0)
+    except KeyboardInterrupt:
+        print("Découverte passive des hôtes stopper.")
+    if export_file:
+        with open(export_file, 'w') as file:
+            file.write("".join(addr))
+            print(f"Résultats exportés dans {export_file}")
+
+#Génère des adresses IP allant de 0 à 254 et envoie des pings pour savoir si une hôte ayant cette adresse est présente sur le réseau.
+#Retourne l'adresse IP de l'autre quand une réponse est  reçu. les réponses peuvent elles aussi être stocké dans un fichier texte.
+def decouverte_reseau(network, export_file=None):
+    print(f"Découverte du réseau {network} en cours...")
+
+    network_obj = ipaddress.IPv4Network(network, strict=False)
+    hote = []
+    for ip in network_obj.hosts():
+        requete_icmp = IP(dst=str(ip))/ICMP()
+        response = sr1(requete_icmp, timeout=2, verbose=False)
+        if response:
+            hote.append(str(ip))
+            print(f"Hôte {ip} trouvé.")
+        else:
+            print(f"Aucun hôte disponible sur le réseau {ip}")
+
+    if export_file:
+        with open(export_file, 'w') as file:
+            file.write("\n".join(hote))
+            print(f"Résultats exportés dans {export_file}")
+    print("Hôtes présent sur le réseau :")
+    for i in hote:
+                print(i)
+
+#La section main permet de stocker les parser utilisé pour la synthaxe de l'appel de la fonction.
+#On utilise içi le module argparse pour gérer les parser.
+def main():
+    parser = argparse.ArgumentParser(description='Ce script sert à reconnaître des hôtes.')
+    parser.add_argument('-a', dest='adresse', help='Utilise une requête ICMP pour savoir si lhote est présente sur le réseau')
+    parser.add_argument('-p', dest='passive_adresse', help='Ecoute les requêtes ARP afin de savoir si lhote est sur le réseau')
+    parser.add_argument('-t', dest='test', help='Test tout le réseau pour trouver les hôtes du réseau donnée')
+    parser.add_argument("-x", dest='export', help="Exporter les résultats dans un fichier (-t XX.XX.XX.XX -x /chemin/test.txt)")
+    args = parser.parse_args()
+
+    if args.adresse:
+        decouverte_icmp(args.adresse, args.export)
+    elif args.passive_adresse:
+        decouverte_hote(args.passive_adresse, args.export)
+    elif args.test:
+        decouverte_reseau(args.test, args.export)
+    else:
+        print("Veuillez spécifier l'option -a pour envoyer un paquet ICMP ou -p pour capturer des paquets.")
+
+if __name__ == "__main__":
+    main()
